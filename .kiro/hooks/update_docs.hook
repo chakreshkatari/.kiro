@@ -1,0 +1,28 @@
+# Kiro Hook Configuration
+# Hook: Update Documentation on Code Change
+# Trigger: On file save (.py files)
+# Action: Update README.md with new features and usage examples
+
+name: update_docs
+trigger:
+  event: file_save
+  pattern: "*.py"
+  
+action:
+  type: ai_agent
+  instruction: |
+    The Python source files have been modified. 
+    Please review the changes and update the documentation accordingly.
+    
+    If there is a README.md file, update it to reflect:
+    - Any new functionality
+    - API changes
+    - Usage examples
+    - Installation steps if dependencies changed
+    
+    Focus on keeping the documentation accurate and up-to-date with the current codebase.
+    Maintain the existing documentation style and structure.
+
+output:
+  target: README.md
+  mode: update
